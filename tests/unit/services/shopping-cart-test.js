@@ -9,4 +9,15 @@ module('Unit | Service | shopping-cart', function (hooks) {
     let service = this.owner.lookup('service:shopping-cart');
     assert.ok(service);
   });
+
+  test('addItem works', function (assert) {
+    const service = this.owner.lookup('service:shopping-cart');
+    assert.strictEqual(service.itemList.length, 0, 'itemList is empty');
+    service.addItem({});
+    assert.strictEqual(
+      service.itemList.length,
+      1,
+      'itemList is increased by one'
+    );
+  });
 });
