@@ -9,14 +9,31 @@
       </LinkTo>
     </li>
     <li class='breadcrumb-item'>
-      <LinkTo @route='cart'>
-        Shopping Cart
-      </LinkTo>
+      Shopping Cart
     </li>
   </ol>
 
   {{#each this.cart.itemList as |item|}}
-    <h4>{{item.name}}</h4>
+    <div class='cart-item d-flex align-items-center'>
+      <div class='cart-item-thumbnail'>
+        <img src={{item.image}} alt={{item.image}} />
+      </div>
+      <div class='ml-3'>
+        <h4>
+          {{item.name}}
+        </h4>
+        <i class='font-weight-bold'>
+          {{currency item.price}}
+        </i>
+      </div>
+      {{! template-lint-disable require-input-label }}
+      <input
+        type='number'
+        class='ml-auto'
+        value={{item.count}}
+        {{on 'input' (fn this.updateItemCount item)}}
+      />
+    </div>
   {{/each}}
 
   <section class='w-50 ml-auto text-right mb-5'>

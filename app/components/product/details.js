@@ -12,7 +12,7 @@ export default class ProductDetailsComponent extends Component {
       name,
       color,
       image: colors.find((colorInfo) => colorInfo.color === color).image,
-      price,
+      price: price.current,
     });
   }
 }
