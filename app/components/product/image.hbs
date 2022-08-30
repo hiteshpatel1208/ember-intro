@@ -1,3 +1,4 @@
-<div class='product-image'>
-  <img src={{@imageSource}} alt='red_solo' />
+{{!-- template-lint-disable no-invalid-interactive --}}
+<div class='product-image' {{on "click" @toggleZoom}}>
+  <img src={{@imageSource}} alt={{@imageSource}} />
 </div>
