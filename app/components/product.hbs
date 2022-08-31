@@ -1,4 +1,4 @@
-<LinkTo @route='item' @model={{@productInfo.id}} class='product'>
+<LinkTo data-test-product={{@productInfo.id}} @route='item' @model={{@productInfo.id}} class='product'>
   <Product::Image @imageSource={{this.productImage}} />
   <Product::Details @name={{@productInfo.name}} @price={{@productInfo.price}} />
 </LinkTo>
